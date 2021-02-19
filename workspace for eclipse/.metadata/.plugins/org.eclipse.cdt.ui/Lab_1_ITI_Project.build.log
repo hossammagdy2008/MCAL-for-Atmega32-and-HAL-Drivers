@@ -1,0 +1,42 @@
+18:49:16 **** Build of configuration Debug for project Lab_1_ITI_Project ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:8:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../main.c:9:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../main.c
+ 
+Building target: Lab_1_ITI_Project.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Lab_1_ITI_Project.map -mmcu=atmega32 -o "Lab_1_ITI_Project.elf"  ./main.o   
+Finished building target: Lab_1_ITI_Project.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Lab_1_ITI_Project.elf  >"Lab_1_ITI_Project.lss"
+Finished building: Lab_1_ITI_Project.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Lab_1_ITI_Project.elf  "Lab_1_ITI_Project.hex"
+Finished building: Lab_1_ITI_Project.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Lab_1_ITI_Project.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3366 bytes (10.3% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:49:16 Build Finished (took 487ms)
+

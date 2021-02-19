@@ -1,0 +1,156 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 7, 2021
+ *      Author: hossam
+ */
+//#include "../Lib/ATmega32_Registers.h"
+#include "../Lib/Bit_Math.h"
+#include "../Lib/Std_Types.h"
+#include "../DIO_V2/Dio_int.h"
+#include "../Lcd_Driver/Lcd_int.h"
+#include "../PORT_Peripheral/Port_int.h"
+#include <avr/io.h>
+#include "KeyPad_int.h"
+#undef F_CPU
+#define F_CPU 8000000
+#include <util/delay.h>
+
+u8 * IntToStr(u32 num);
+
+u8 *  IntToStr(u32 num){//7925
+	u32 div=10;
+	u32 temp=0;
+	u32 num_temp=num;//7925
+	static u8 string_array[16]; // bec i will return its address
+	static u8 *ptr_temp = string_array;
+	static u8 *ptr_return = string_array;
+	static u8 returned_array[16];
+	u8 i=0;
+	while(num != 0){	//1000
+		temp = num%div;	//1000%10 = 0
+		num  = num/div; // 1000=1000/10 = 100
+		*ptr_temp=temp+'0'; // '0' = 48 to make it string
+		ptr_temp++;
+	}
+	*ptr_temp='\0';
+//0005297
+	while(ptr_temp != ptr_return){
+		ptr_temp--;
+		returned_array[i]=*ptr_temp;
+		i++;
+	}
+	//7925000
+	/*
+	while( ( ( num_temp %10 ==0) || ( num_temp %5 ==0) ) && (num_temp!=0) ) {
+		returned_array[i]='0';
+		i++;
+		num_temp/=div;
+		if( ((num_temp %10) !=0) ){
+			returned_array[i-1]='\0';
+			return returned_array;
+		}
+		else if (( num_temp %5 !=0)){
+			returned_array[i-1]='\0';
+			return returned_array;
+		}
+	}
+*/
+
+	returned_array[i]='\0';
+
+	return returned_array;
+}
+
+
+
+int main(void){
+	u8 num1=0;
+	u8 num2=0;
+	u64 num1_result=0;
+	u64 num2_result=0;
+	u8 operation=0;
+	u8 old_operation=0;
+	u8 operation_temp=0;
+	u64 final_result=0;
+	//u8 row=0,col=0;
+	u8 *final_result_string;
+
+	Port_vidInit();
+	Lcd_vidInit();
+	Lcd_u8SendPacket(LCD_u8CLEAR_SCREEN_CMD,LCD_u8COMMAND);
+
+	while(1){
+		if(operation==0){
+			num1=Keypad_u8GetKey();// assign value in num1 from KEYPAD
+			if((num1>='0') && (num1<='9')){
+				// if number between 0-9
+				Lcd_u8SendPacket(num1,LCD_u8DATA);
+				//the next 3 steps are change string to integer
+				num1_result *=10;    	// result 1st =0 *10 = 0
+				num1 -=48; 				// num1 -=48;  num1= sent num
+				num1_result+=num1;		// 7985
+			}
+		}
+		else if(operation!=0){
+			num2=Keypad_u8GetKey();// assign value in num2 from KEYPAD
+			if((num2>='0') && (num2<='9')){
+				// if number between 0-9
+				Lcd_u8SendPacket(num2,LCD_u8DATA);
+				//the next 3 steps are change string to integer
+				num2_result *=10;    	// result 2nd =0 *10 = 0
+				num2 -=48; 				// num2 -=48;  num2= sent num
+				num2_result+=num2;		// 7985
+
+			}
+		}
+
+		operation_temp=Keypad_u8GetKey();
+		if( (operation_temp=='+') || (operation_temp=='-') ||
+				(operation_temp=='*') || (operation_temp=='/') ){
+			Lcd_u8SendPacket(operation_temp,LCD_u8DATA);
+			operation=operation_temp;
+			old_operation=operation_temp;
+		}
+		else if(operation_temp=='='){
+			Lcd_u8SendPacket(operation_temp,LCD_u8DATA);
+			if (old_operation=='+'){
+				final_result = num1_result + num2_result;
+			}
+			else if (old_operation=='-'){
+				final_result = num1_result - num2_result;
+			}
+			else if (old_operation=='*'){
+				final_result = num1_result * num2_result;
+			}
+			else if (old_operation=='/'){
+				final_result = num1_result / num2_result;
+			}
+			else {
+				Lcd_u8GoTo(0,1);
+				Lcd_u8WriteString(" WRONG INPUTSS ");
+			}
+			//num1_result=final_result;
+			operation=0; // return the operation to the reset value
+			// to get any other new numbers as inputs and add
+			//them to the result
+			final_result_string=IntToStr(final_result);
+			while(((*final_result_string)!='\0')){
+				Lcd_u8SendPacket(*final_result_string,LCD_u8DATA);
+				final_result_string++;
+			}
+		}
+		else if(operation_temp=='#') {
+			num1_result=0;
+			num2_result=0;
+			final_result=0;
+			operation_temp=0;
+			Lcd_u8SendPacket(LCD_u8CLEAR_SCREEN_CMD,LCD_u8COMMAND);
+		}
+
+		_delay_ms(500);
+
+	}
+
+	return 0;
+}

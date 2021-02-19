@@ -1,0 +1,74 @@
+01:27:32 **** Build of configuration Debug for project Motor_HAL ****
+make all 
+Building file: ../Dio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Dio.d" -MT"Dio.o" -c -o "Dio.o" "../Dio.c"
+Finished building: ../Dio.c
+ 
+Building file: ../KeyPad.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"KeyPad.d" -MT"KeyPad.o" -c -o "KeyPad.o" "../KeyPad.c"
+Finished building: ../KeyPad.c
+ 
+Building file: ../Lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Lcd.d" -MT"Lcd.o" -c -o "Lcd.o" "../Lcd.c"
+In file included from ../Lcd.c:15:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Lcd.c
+ 
+Building file: ../Led.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Led.d" -MT"Led.o" -c -o "Led.o" "../Led.c"
+Finished building: ../Led.c
+ 
+Building file: ../Motor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Motor.d" -MT"Motor.o" -c -o "Motor.o" "../Motor.c"
+In file included from ../Motor.c:14:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Motor.c
+ 
+Building file: ../Motor_Keypad_LCD_1.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Motor_Keypad_LCD_1.d" -MT"Motor_Keypad_LCD_1.o" -c -o "Motor_Keypad_LCD_1.o" "../Motor_Keypad_LCD_1.c"
+In file included from ../Motor_Keypad_LCD_1.c:19:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Motor_Keypad_LCD_1.c
+ 
+Building file: ../Port.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Port.d" -MT"Port.o" -c -o "Port.o" "../Port.c"
+Finished building: ../Port.c
+ 
+Building target: Motor_HAL.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Motor_HAL.map -mmcu=atmega32 -o "Motor_HAL.elf"  ./Dio.o ./KeyPad.o ./Lcd.o ./Led.o ./Motor.o ./Motor_Keypad_LCD_1.o ./Port.o   
+Finished building target: Motor_HAL.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Motor_HAL.elf  >"Motor_HAL.lss"
+Finished building: Motor_HAL.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Motor_HAL.elf  "Motor_HAL.hex"
+Finished building: Motor_HAL.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Motor_HAL.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   12968 bytes (39.6% Full)
+(.text + .data + .bootloader)
+
+Data:        180 bytes (8.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+01:27:33 Build Finished (took 929ms)
+

@@ -1,0 +1,15 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 9, 2021
+ *      Author: hossam
+ */
+
+#include "Bit_Math.h"
+#include "Std_Types.h"
+#include "ATmega32_Registers.h"
+
+int main(void){
+
+	return 0;
+}

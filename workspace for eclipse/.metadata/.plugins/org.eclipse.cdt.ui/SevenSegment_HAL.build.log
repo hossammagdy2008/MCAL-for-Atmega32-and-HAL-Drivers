@@ -1,0 +1,44 @@
+16:30:11 **** Incremental Build of configuration Debug for project SevenSegment_HAL ****
+make all 
+Building file: ../SevenSeg.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"SevenSeg.d" -MT"SevenSeg.o" -c -o "SevenSeg.o" "../SevenSeg.c"
+../SevenSeg.c:8:36: error: ../../../Lib/Std_Types.h: No such file or directory
+../SevenSeg.c:9:35: error: ../../../Lib/Bit_Math.h: No such file or directory
+../SevenSeg.c:10:85: error: ../../MCAL/DIO_V2/Dio_int.h: No such file or directory
+../SevenSeg.c:11:45: error: ../../../Lib/ATmega32_Registers.h: No such file or directory
+../SevenSeg.c:16: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'Led_au8LedConfig'
+../SevenSeg.c: In function 'Led_vidTurnOnLed':
+../SevenSeg.c:38: warning: implicit declaration of function 'Dio_vidSetPinVal'
+../SevenSeg.c:38: error: 'Led_au8LedConfig' undeclared (first use in this function)
+../SevenSeg.c:38: error: (Each undeclared identifier is reported only once
+../SevenSeg.c:38: error: for each function it appears in.)
+../SevenSeg.c:38: error: 'DIO_u8HIGH' undeclared (first use in this function)
+../SevenSeg.c: In function 'Led_vidTurnOffLed':
+../SevenSeg.c:45: error: 'DIO_u8PIN_0' undeclared (first use in this function)
+../SevenSeg.c:45: error: 'DIO_u8LOW' undeclared (first use in this function)
+../SevenSeg.c:48: error: 'DIO_u8PIN_1' undeclared (first use in this function)
+../SevenSeg.c:51: error: 'DIO_u8PIN_2' undeclared (first use in this function)
+../SevenSeg.c:54: error: 'DIO_u8PIN_3' undeclared (first use in this function)
+../SevenSeg.c:57: error: 'DIO_u8PIN_4' undeclared (first use in this function)
+../SevenSeg.c:60: error: 'DIO_u8PIN_5' undeclared (first use in this function)
+../SevenSeg.c:63: error: 'DIO_u8PIN_6' undeclared (first use in this function)
+../SevenSeg.c:66: error: 'DIO_u8PIN_7' undeclared (first use in this function)
+../SevenSeg.c:69: error: 'DIO_u8PIN_8' undeclared (first use in this function)
+../SevenSeg.c:72: error: 'DIO_u8PIN_9' undeclared (first use in this function)
+../SevenSeg.c: In function 'Led_vidTglLed':
+../SevenSeg.c:83: warning: implicit declaration of function 'Dio_vidTglPinVal'
+../SevenSeg.c:83: error: 'DIO_u8PIN_0' undeclared (first use in this function)
+../SevenSeg.c:86: error: 'DIO_u8PIN_1' undeclared (first use in this function)
+../SevenSeg.c:89: error: 'DIO_u8PIN_2' undeclared (first use in this function)
+../SevenSeg.c:92: error: 'DIO_u8PIN_3' undeclared (first use in this function)
+../SevenSeg.c:95: error: 'DIO_u8PIN_4' undeclared (first use in this function)
+../SevenSeg.c:98: error: 'DIO_u8PIN_5' undeclared (first use in this function)
+../SevenSeg.c:101: error: 'DIO_u8PIN_6' undeclared (first use in this function)
+../SevenSeg.c:104: error: 'DIO_u8PIN_7' undeclared (first use in this function)
+../SevenSeg.c:107: error: 'DIO_u8PIN_8' undeclared (first use in this function)
+../SevenSeg.c:110: error: 'DIO_u8PIN_9' undeclared (first use in this function)
+make: *** [SevenSeg.o] Error 1
+
+16:30:11 Build Finished (took 122ms)
+

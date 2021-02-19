@@ -1,0 +1,64 @@
+/*
+ * ATmega32_Registers.h
+ *
+ *  Created on: Jan 19, 2021
+ *      Author: hossam
+ */
+
+#ifndef ATMEGA32_REGISTERS_H_
+#define ATMEGA32_REGISTERS_H_
+
+//  this union is not working  idk why ?
+
+#include "Std_Types.h"
+
+typedef union {
+	struct{
+		u8	u8Bit_0 : 1;
+		u8	u8Bit_1 : 1;
+		u8	u8Bit_2 : 1;
+		u8	u8Bit_3 : 1;
+		u8	u8Bit_4 : 1;
+		u8	u8Bit_5 : 1;
+		u8	u8Bit_6 : 1;
+		u8	u8Bit_7 : 1;
+	}Bits;
+
+	u8 u8RegData;
+
+}tuniRegType_t;
+
+// make it for DDRx-PORTx-PINx
+/*both of the next 2 lines r the same*/
+//#define DDRC			((volatile tuniRegType *)0x34)->u8RegData)
+//#define DDRC			(*(volatile tuniRegType *)0x34))
+/*both of the prev 2 lines r the same*/
+
+#define DDRA			(*((volatile tuniRegType_t *)0x3A))
+#define DDRB			(*((volatile tuniRegType_t *)0x37))
+#define DDRC			(*((volatile tuniRegType_t *)0x34))
+#define DDRD			(*((volatile tuniRegType_t *)0x31))
+
+#define PINA			(*((volatile tuniRegType_t *)0x39))
+#define PINB			(*((volatile tuniRegType_t *)0x36))
+#define PINC			(*((volatile tuniRegType_t *)0x33))
+#define PIND			(*((volatile tuniRegType_t *)0x30))
+
+#define PORTA			(*((volatile tuniRegType_t *)0x3B))
+#define PORTB			(*((volatile tuniRegType_t *)0x38))
+#define PORTC			(*((volatile tuniRegType_t *)0x35))
+#define PORTD			(*((volatile tuniRegType_t *)0x32))
+
+
+#define DDRC_BIT_0		(((volatile tuniRegType_t *)0x34)->Bits.u8Bit_0)
+#define DDRC_BIT_1		(((volatile tuniRegType_t *)0x34)->Bits.u8Bit_1)
+#define DDRC_BIT_2		(((volatile tuniRegType_t *)0x34)->Bits.u8Bit_2)
+#define DDRC_BIT_3		(((volatile tuniRegType_t *)0x34)->Bits.u8Bit_3)
+#define DDRC_BIT_4		(((volatile tuniRegType_t *)0x34)->Bits.u8Bit_4)
+#define DDRC_BIT_5		(((volatile tuniRegType_t *)0x34)->Bits.u8Bit_5)
+#define DDRC_BIT_6		(((volatile tuniRegType_t *)0x34)->Bits.u8Bit_6)
+#define DDRC_BIT_7		(((volatile tuniRegType_t *)0x34)->Bits.u8Bit_7)
+
+
+
+#endif /* ATMEGA32_REGISTERS_H_ */

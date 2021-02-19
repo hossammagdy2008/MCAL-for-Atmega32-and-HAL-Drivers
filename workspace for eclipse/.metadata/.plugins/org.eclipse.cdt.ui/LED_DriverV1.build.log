@@ -1,0 +1,20 @@
+16:30:10 **** Incremental Build of configuration Debug for project LED_DriverV1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 LED_DriverV1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6816 bytes (20.8% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:30:10 Build Finished (took 129ms)
+

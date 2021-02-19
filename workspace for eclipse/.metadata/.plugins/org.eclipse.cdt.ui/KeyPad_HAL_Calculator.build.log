@@ -1,0 +1,64 @@
+13:53:47 **** Build of configuration Debug for project KeyPad_HAL_Calculator ****
+make all 
+Building file: ../Dio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Dio.d" -MT"Dio.o" -c -o "Dio.o" "../Dio.c"
+Finished building: ../Dio.c
+ 
+Building file: ../KeyPad.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"KeyPad.d" -MT"KeyPad.o" -c -o "KeyPad.o" "../KeyPad.c"
+Finished building: ../KeyPad.c
+ 
+Building file: ../Lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Lcd.d" -MT"Lcd.o" -c -o "Lcd.o" "../Lcd.c"
+In file included from ../Lcd.c:12:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Lcd.c
+ 
+Building file: ../Port.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Port.d" -MT"Port.o" -c -o "Port.o" "../Port.c"
+Finished building: ../Port.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:17:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'IntToStr':
+../main.c:24: warning: unused variable 'num_temp'
+Finished building: ../main.c
+ 
+Building target: KeyPad_HAL_Calculator.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,KeyPad_HAL_Calculator.map -mmcu=atmega32 -o "KeyPad_HAL_Calculator.elf"  ./Dio.o ./KeyPad.o ./Lcd.o ./Port.o ./main.o   
+Finished building target: KeyPad_HAL_Calculator.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S KeyPad_HAL_Calculator.elf  >"KeyPad_HAL_Calculator.lss"
+Finished building: KeyPad_HAL_Calculator.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex KeyPad_HAL_Calculator.elf  "KeyPad_HAL_Calculator.hex"
+Finished building: KeyPad_HAL_Calculator.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 KeyPad_HAL_Calculator.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   25472 bytes (77.7% Full)
+(.text + .data + .bootloader)
+
+Data:        332 bytes (16.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:53:49 Build Finished (took 2s.325ms)
+

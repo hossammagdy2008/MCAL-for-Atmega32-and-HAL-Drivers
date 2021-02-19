@@ -1,0 +1,42 @@
+23:28:08 **** Build of configuration Debug for project ASS_1_2 ****
+make all 
+Building file: ../Ass_1_2.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Ass_1_2.d" -MT"Ass_1_2.o" -c -o "Ass_1_2.o" "../Ass_1_2.c"
+../Ass_1_2.c:8:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../Ass_1_2.c:9:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Ass_1_2.c
+ 
+Building target: ASS_1_2.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ASS_1_2.map -mmcu=atmega32 -o "ASS_1_2.elf"  ./Ass_1_2.o   
+Finished building target: ASS_1_2.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ASS_1_2.elf  >"ASS_1_2.lss"
+Finished building: ASS_1_2.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ASS_1_2.elf  "ASS_1_2.hex"
+Finished building: ASS_1_2.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ASS_1_2.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3702 bytes (11.3% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:28:09 Build Finished (took 392ms)
+

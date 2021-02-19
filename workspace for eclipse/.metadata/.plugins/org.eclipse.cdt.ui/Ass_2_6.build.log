@@ -1,0 +1,46 @@
+17:17:29 **** Incremental Build of configuration Debug for project Ass_2_6 ****
+make all 
+Building file: ../Ass_2_6.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Ass_2_6.d" -MT"Ass_2_6.o" -c -o "Ass_2_6.o" "../Ass_2_6.c"
+../Ass_2_6.c:12:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../Ass_2_6.c:13:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../Ass_2_6.c: In function 'main':
+../Ass_2_6.c:44: warning: unused variable 'Light_Col'
+../Ass_2_6.c:43: warning: unused variable 'Light_Row'
+../Ass_2_6.c:39: warning: unused variable 'ImagCount'
+Finished building: ../Ass_2_6.c
+ 
+Building target: Ass_2_6.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Ass_2_6.map -mmcu=atmega32 -o "Ass_2_6.elf"  ./Ass_2_6.o   
+Finished building target: Ass_2_6.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Ass_2_6.elf  >"Ass_2_6.lss"
+Finished building: Ass_2_6.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Ass_2_6.elf  "Ass_2_6.hex"
+Finished building: Ass_2_6.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Ass_2_6.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5678 bytes (17.3% Full)
+(.text + .data + .bootloader)
+
+Data:         24 bytes (1.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+17:17:29 Build Finished (took 493ms)
+

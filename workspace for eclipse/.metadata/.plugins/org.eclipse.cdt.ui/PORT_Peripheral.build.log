@@ -1,0 +1,7 @@
+17:20:31 **** Clean-only build of configuration Debug for project PORT_Peripheral ****
+make clean 
+rm -rf  PORT_Peripheral.hex  ./Port.o ./main.o  sizedummy  PORT_Peripheral.lss  ./Port.d ./main.d  PORT_Peripheral.elf
+ 
+
+17:20:31 Build Finished (took 182ms)
+

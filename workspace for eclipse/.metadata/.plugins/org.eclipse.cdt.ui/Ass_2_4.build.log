@@ -1,0 +1,42 @@
+21:47:51 **** Incremental Build of configuration Debug for project Ass_2_4 ****
+make all 
+Building file: ../Ass_2_4.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Ass_2_4.d" -MT"Ass_2_4.o" -c -o "Ass_2_4.o" "../Ass_2_4.c"
+../Ass_2_4.c:10:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../Ass_2_4.c:11:
+c:/winavr_20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Ass_2_4.c
+ 
+Building target: Ass_2_4.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Ass_2_4.map -mmcu=atmega32 -o "Ass_2_4.elf"  ./Ass_2_4.o   
+Finished building target: Ass_2_4.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Ass_2_4.elf  >"Ass_2_4.lss"
+Finished building: Ass_2_4.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Ass_2_4.elf  "Ass_2_4.hex"
+Finished building: Ass_2_4.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Ass_2_4.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3434 bytes (10.5% Full)
+(.text + .data + .bootloader)
+
+Data:         40 bytes (2.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:47:52 Build Finished (took 440ms)
+

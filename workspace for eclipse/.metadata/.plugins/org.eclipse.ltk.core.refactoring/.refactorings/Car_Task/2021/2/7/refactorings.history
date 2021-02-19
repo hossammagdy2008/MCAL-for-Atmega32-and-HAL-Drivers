@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Car_Task/Motor_Keypad_LCD_1.c&apos; to &apos;Lcd_car_task.c&apos;" description="Rename resource &apos;Motor_Keypad_LCD_1.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Motor_Keypad_LCD_1.c" name="Lcd_car_task.c" stamp="1612998592799" updateReferences="true"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DIO_V2/Port_init.h&apos; to &apos;Port_int.h&apos;" description="Rename resource &apos;Port_init.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Port_init.h" name="Port_int.h" stamp="1610905171992" updateReferences="true"/>
+</session>

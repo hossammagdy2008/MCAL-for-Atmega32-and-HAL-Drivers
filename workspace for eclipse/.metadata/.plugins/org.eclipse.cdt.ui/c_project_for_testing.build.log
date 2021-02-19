@@ -1,0 +1,6 @@
+21:42:59 **** Incremental Build of configuration Build (GNU) for project c_project_for_testing ****
+make all 
+make: *** No rule to make target 'all'.  Stop.
+
+21:43:00 Build Finished (took 124ms)
+

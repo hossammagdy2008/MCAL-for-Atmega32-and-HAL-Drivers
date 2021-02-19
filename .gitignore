@@ -1,0 +1,7 @@
+/.metadata/
+RemoteSystemsTempFiles/
+!*.c
+!*.h
+*/Debug/
+*/Release/
+
